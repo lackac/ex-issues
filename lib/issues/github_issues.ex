@@ -3,7 +3,7 @@ defmodule Issues.GitHubIssues do
 
   @github_url Application.get_env(:issues, :github_url)
 
-  def fetch({user, repo}) do
+  def fetch(user, repo) do
     issues_url(user, repo)
       |> HTTPoison.get(@user_agent)
       |> handle_response
